@@ -13,7 +13,6 @@ export const DATA = {
       "TypeScript",
       "Python",
       "Java",
-      "SQL",
     ],
     "Frontend": [
       "React",
