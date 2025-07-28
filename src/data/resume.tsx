@@ -51,7 +51,7 @@ export const DATA = {
       },
       LinkedIn: {
         name: "LinkedIn",
-        url: "https://dub.sh/dillion-linkedin",
+        url: "https://www.linkedin.com/in/akash-kumar-prasad-82b1a1285/",
         icon: Icons.linkedin,
 
         navbar: true,
