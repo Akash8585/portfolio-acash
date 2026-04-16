@@ -89,6 +89,32 @@ export const DATA = {
   ],
   projects: [
     {
+      title: "Todo Telegram Agent",
+      href: "https://github.com/Akash8585/todo_telegram_agent",
+      dates: "2026",
+      active: true,
+      description:
+        "Telegram reminder bot that turns natural language into scheduled tasks: Groq parses intents and times, tasks live in SQLite (SQLModel), and a background scheduler sends due reminders with inline **Done** and **Snooze** actions. Supports commands, recurring tasks, and a small FastAPI health endpoint.",
+      technologies: [
+        "Python",
+        "FastAPI",
+        "SQLModel",
+        "SQLite",
+        "python-telegram-bot",
+        "APScheduler",
+        "Groq API",
+      ],
+      links: [
+        {
+          type: "GitHub",
+          href: "https://github.com/Akash8585/todo_telegram_agent",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "",
+      video: "",
+    },
+    {
       title: "IntelCraft",
       href: "https://github.com/Akash8585/IntelCraft",
       dates: "2025", // approximate project period
