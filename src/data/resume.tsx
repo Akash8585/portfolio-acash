@@ -12,26 +12,39 @@ export const DATA = {
       "JavaScript",
       "TypeScript",
       "Python",
-      "Java",
+      "SQL",
     ],
-    "Frontend": [
-      "React",
-      "Next.js",
-      "HTML/CSS",
+    "Frameworks": [
+      "React.js",
+      "Next.js 15",
+      "HTML5",
+      "CSS3",
       "Tailwind CSS",
     ],
     "Backend": [
       "Node.js",
-      "REST APIs",
+      "FastAPI",
+      "WebSockets",
     ],
     "Database": [
       "PostgreSQL",
       "MongoDB",
-      "MySQL",
+      "Firebase",
+      "Supabase",
     ],
-    "Tools & Technologies": [
+    "Cloud & Tools": [
+      "Docker",
       "Git",
+      "GitHub",
+      "Postman",
+      "Render",
       "Vercel",
+      "Canva",
+    ],
+    "CORE CS": [
+      "DBMS",
+      "Data Science",
+      "REST APIs",
     ],
   },
   navbar: [
