@@ -41,7 +41,7 @@ export const DATA = {
       "Vercel",
       "Canva",
     ],
-    "CORE CS": [
+    "Core CS": [
       "DBMS",
       "Data Science",
       "REST APIs",

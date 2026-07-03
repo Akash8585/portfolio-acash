@@ -1,12 +1,11 @@
 import { HackathonCard } from "@/components/hackathon-card";
-import { GitHubStats } from "@/components/github-stats";
+// import { GitHubStats } from "@/components/github-stats";
 import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
 import { ProjectCard } from "@/components/project-card";
 import { ResumeCard } from "@/components/resume-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { DATA } from "@/data/resume";
 import Link from "next/link";
 import Markdown from "react-markdown";
@@ -46,28 +45,32 @@ export default function Page() {
             <h2 className="text-xl font-bold">Stack Tools</h2>
           </BlurFade>
           <BlurFade delay={BLUR_FADE_DELAY * 4}>
-            <Accordion type="multiple" className="w-full">
-              {Object.entries(DATA.skills).map(([category, skills], categoryId) => (
-                <AccordionItem key={category} value={category}>
-                  <AccordionTrigger className="text-left">
-                    {category}
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    <div className="flex flex-wrap gap-1">
-                      {skills.map((skill, skillId) => (
-                        <Badge key={skill} variant="secondary">
-                          {skill}
-                        </Badge>
-                      ))}
+            <div className="w-full divide-y border-b">
+              {Object.entries(DATA.skills).map(([category, skills]) => (
+                <div
+                  key={category}
+                  tabIndex={0}
+                  className="group py-4 outline-none first:pt-0"
+                >
+                  <p className="font-medium">{category}</p>
+                  <div className="grid grid-rows-[1fr] opacity-100 transition-[grid-template-rows,opacity] duration-200 ease-out md:grid-rows-[0fr] md:opacity-0 md:group-hover:grid-rows-[1fr] md:group-hover:opacity-100 md:group-focus-within:grid-rows-[1fr] md:group-focus-within:opacity-100">
+                    <div className="overflow-hidden">
+                      <div className="flex flex-wrap gap-1 pt-3">
+                        {skills.map((skill) => (
+                          <Badge key={skill} variant="secondary">
+                            {skill}
+                          </Badge>
+                        ))}
+                      </div>
                     </div>
-                  </AccordionContent>
-                </AccordionItem>
+                  </div>
+                </div>
               ))}
-            </Accordion>
+            </div>
           </BlurFade>
         </div>
       </section>
-      <section id="github-stats">
+      {/* <section id="github-stats">
         <div className="flex min-h-0 flex-col gap-y-3">
           <BlurFade delay={BLUR_FADE_DELAY * 5}>
             <h2 className="text-xl font-bold">GitHub Stats</h2>
@@ -76,7 +79,7 @@ export default function Page() {
             <GitHubStats />
           </BlurFade>
         </div>
-      </section>
+      </section> */}
       {/* <section id="work">
         <div className="flex min-h-0 flex-col gap-y-3">
           <BlurFade delay={BLUR_FADE_DELAY * 5}>
