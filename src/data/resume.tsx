@@ -5,7 +5,7 @@ export const DATA = {
   name: "Akash Kumar Prasad",
   url: "https://akashkumarprasad.com",
   description:
-    "I'm a Data Science student at IIT Madras, learning to build fast, functional software — from responsive web apps to AI-powered tools. Just getting started, but building every day. ",
+    "I'm a Full-Stack Developer and pursuing a B.S in Data Science and Applications at Indian Institute of Technology Madras, specializing in AI-powered web applications, scalable backend systems, and modern frontend engineering.",
   avatarUrl: "/me.jpg",
   skills: {
     "Programming Languages": [
