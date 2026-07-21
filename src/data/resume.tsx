@@ -171,6 +171,64 @@ export const DATA = {
       video: ""
     },
     {
+      title: "Ramso",
+      href: "https://github.com/Akash8585/Ramso",
+      dates: "2025",
+      active: true,
+      description:
+        "One-click AI video generator that turns complex concepts into polished educational explainers with generated scripts, Manim animations, professional voiceovers, and downloadable MP4 output.",
+      technologies: [
+        "Python",
+        "Streamlit",
+        "Agno",
+        "OpenAI GPT-4o",
+        "Manim",
+        "Neets AI",
+        "FFmpeg",
+      ],
+      links: [
+        {
+          type: "GitHub",
+          href: "https://github.com/Akash8585/Ramso",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "/ramso.png",
+      video: "",
+    },
+    {
+      title: "Claso",
+      href: "https://github.com/Akash8585/claso",
+      dates: "2025",
+      active: true,
+      description:
+        "Full-stack AI code assistant that uses custom-trained transformer models to generate intelligent code comments and context-aware commit messages for Python and JavaScript—without relying on external model APIs.",
+      technologies: [
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Monaco Editor",
+        "Python",
+        "FastAPI",
+        "PyTorch",
+        "Transformers",
+      ],
+      links: [
+        {
+          type: "GitHub",
+          href: "https://github.com/Akash8585/claso",
+          icon: <Icons.github className="size-3" />,
+        },
+        {
+          type: "Demo Video",
+          href: "https://youtu.be/h9gdoTIhw48?si=8QceHLePsVTGHQHV",
+          icon: <Icons.youtube className="size-3" />,
+        },
+      ],
+      image: "/claso.png",
+      video: "",
+    },
+    {
       title: "Todo Telegram Agent",
       href: "https://github.com/Akash8585/todo_telegram_agent",
       dates: "2026",
