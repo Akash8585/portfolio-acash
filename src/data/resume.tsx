@@ -102,6 +102,75 @@ export const DATA = {
   ],
   projects: [
     {
+      title: "BuilderBridge",
+      href: "https://builderbridge.vercel.app/",
+      dates: "2026",
+      active: true,
+      description:
+        "AI-assisted construction control room that connects schedules, critical-path planning, weekly commitments, field progress, RFIs, and project documents. Its project-aware agent cites live data, prepares reviewable changes, and applies them only after permission checks and human approval.",
+      technologies: [
+        "Next.js 16",
+        "React 19",
+        "TypeScript",
+        "Tailwind CSS 4",
+        "Vercel AI SDK",
+        "Prisma",
+        "PostgreSQL",
+        "Better Auth",
+        "Supabase",
+      ],
+      links: [
+        {
+          type: "GitHub",
+          href: "https://github.com/Akash8585/builderbridge",
+          icon: <Icons.github className="size-3" />,
+        },
+        {
+          type: "Website",
+          href: "https://builderbridge.vercel.app/",
+          icon: <Icons.globe className="size-3" />,
+        },
+        {
+          type: "Demo Video",
+          href: "https://www.youtube.com/watch?v=MyIDR62UqKg",
+          icon: <Icons.youtube className="size-3" />,
+        },
+      ],
+      image: "/builderbridge.png",
+      video: "",
+    },
+    {
+      title: "SynergySphere",
+      href: "https://github.com/Akash8585/SynergySphere",
+      dates: "2025", // based on hackathon and development timing
+      active: false, // hackathon prototype / MVP from IITM hackathon
+      description:
+        "Advanced team collaboration platform built during IITM hackathon: task management, threaded chat, mentions, notifications, and project dashboards.",
+      technologies: [
+        "Next.js 15",
+        "TypeScript",
+        "Tailwind CSS",
+        "Shadcn UI",
+        "better‑auth",
+        "PostgreSQL",
+        "Drizzle ORM"
+      ],
+      links: [
+        {
+          type: "GitHub",
+          href: "https://github.com/Akash8585/SynergySphere",
+          icon: <Icons.github className="size-3" />
+        },
+        {
+          type: "Demo Video",
+          href: "https://youtu.be/baCzpVf0wYM",
+          icon: <Icons.youtube className="size-3" />
+        },
+      ],
+      image: "/synergysphere.png",
+      video: ""
+    },
+    {
       title: "Todo Telegram Agent",
       href: "https://github.com/Akash8585/todo_telegram_agent",
       dates: "2026",
@@ -190,38 +259,6 @@ export const DATA = {
       image: "/ytslice.png",
       video: ""
     },
-    {
-      title: "SynergySphere",
-      href: "https://github.com/Akash8585/SynergySphere",
-      dates: "2025", // based on hackathon and development timing
-      active: false, // hackathon prototype / MVP from IITM hackathon
-      description:
-        "Advanced team collaboration platform built during IITM hackathon: task management, threaded chat, mentions, notifications, and project dashboards.",
-      technologies: [
-        "Next.js 15",
-        "TypeScript",
-        "Tailwind CSS",
-        "Shadcn UI",
-        "better‑auth",
-        "PostgreSQL",
-        "Drizzle ORM"
-      ],
-      links: [
-        {
-          type: "GitHub",
-          href: "https://github.com/Akash8585/SynergySphere",
-          icon: <Icons.github className="size-3" />
-        },
-        {
-          type: "Demo Video",
-          href: "https://youtu.be/baCzpVf0wYM",
-          icon: <Icons.youtube className="size-3" />
-        },
-      ],
-      image: "",
-      video: ""
-    }
-    
   ],
   hackathons: [
     {
