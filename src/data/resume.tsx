@@ -65,7 +65,7 @@ export const DATA = {
     },
   ] satisfies NavbarItem[],
   contact: {
-    email: "akashkuamrprasad984@gmail.com",
+    email: "akash.iit.work@gmail.com",
     tel: "8585897351",
     social: {
       GitHub: {
@@ -91,7 +91,7 @@ export const DATA = {
       },
       email: {
         name: "Send Email",
-        url: "mailto:akashkuamrprasad984@gmail.com",
+        url: "mailto:akash.iit.work@gmail.com",
         icon: Icons.email,
 
         navbar: true,
