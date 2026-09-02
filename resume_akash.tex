@@ -1,0 +1,154 @@
+%-------------------------
+% Resume in LaTeX
+%-------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage{fontawesome5}
+
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-0.85in}
+\addtolength{\textheight}{0.9in}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\titleformat{\section}{
+  \vspace{-5pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+\pdfgentounicode=1
+
+\newcommand{\resumeItem}[1]{
+  \item\small{{#1 \vspace{-2pt}}}
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+  \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+\begin{document}
+
+\begin{center}
+  \textbf{\Huge \scshape Akash Kumar Prasad} \\ \vspace{7pt}
+  \small
+  \faIcon{github}
+  \href{https://github.com/Akash8585}{\underline{github.com/Akash8585}} $  $
+  \faIcon{code}
+  \href{https://www.acash.dev}{\underline{acash.dev}} $  $
+  \faIcon{linkedin}
+  \href{https://www.linkedin.com/in/akash-kumar-prasad-82b1a1285/}{\underline{linkedin.com/in/akash-kumar-prasad-82b1a1285}} \\
+  \vspace{3pt}
+  \faIcon{envelope}
+  \href{mailto:akashkuamrprasad984@gmail.com}{\underline{akashkuamrprasad984@gmail.com}}
+\end{center}
+
+% -------------------- SUMMARY --------------------
+\section{Summary}
+\small{Software engineer building AI products with Python, Next.js, PostgreSQL, Docker, and real time communication. Experienced with LLM integrations, WebSockets, Stripe subscriptions, automated testing, CI, and production monitoring.}
+
+% -------------------- EDUCATION --------------------
+\section{Education}
+\resumeSubHeadingListStart
+  \resumeSubheading
+    {Indian Institute of Technology Madras}{}
+    {Bachelor of Science in Data Science and Applications}{Pursuing}
+\resumeSubHeadingListEnd
+
+% -------------------- SKILLS --------------------
+\section{Technical Skills}
+\begin{itemize}[leftmargin=0.15in, label={}]
+  \small{\item{
+    \textbf{Languages}{: JavaScript, TypeScript, Python, SQL} \\
+    \textbf{Application}{: Next.js, React, FastAPI, Node.js, REST APIs, WebSockets} \\
+    \textbf{Data \& Infrastructure}{: PostgreSQL, Prisma, Drizzle ORM, Docker, Linux, AWS EC2, GitHub Actions, Vercel, Railway} \\
+    \textbf{AI, Integrations \& Quality}{: OpenAI API, OpenRouter, LangGraph, TTS, Stripe, Vitest, Playwright, Sentry, Notion}
+  }}
+\end{itemize}
+
+% -------------------- EXPERIENCE --------------------
+\section{Experience \& Achievements}
+\resumeSubHeadingListStart
+  \resumeSubheading
+    {Odoo x Paradox Hackathon}{June 2025}
+    {Full Stack Developer}{IIT Madras}
+  \resumeItemListStart
+    \resumeItem{Built \textbf{SynergySphere}, a team collaboration MVP, during a two day hackathon at the IIT Madras campus.}
+    \resumeItem{Implemented task management, threaded chat, mentions, notifications, project dashboards, authentication, and persistent storage using Next.js, TypeScript, PostgreSQL, and Drizzle ORM.}
+  \resumeItemListEnd
+\resumeSubHeadingListEnd
+
+% -------------------- PROJECTS --------------------
+\section{Projects}
+\resumeSubHeadingListStart
+  \resumeProjectHeading
+    {\textbf{\href{https://builderbridge.vercel.app/}{BuilderBridge}} $|$ \footnotesize\emph{Next.js, PostgreSQL, Stripe, Docker, OpenAI compatible API}}{}
+  \resumeItemListStart
+    \resumeItem{Built a production oriented Next.js application backed by PostgreSQL, with role based access, document search, an LLM agent, and database writes protected by approval and permission checks.}
+    \resumeItem{Integrated Stripe Checkout, billing portal sessions, and subscription lifecycle webhooks for organization plans.}
+    \resumeItem{Added a Docker OCR service, Vitest and Playwright coverage, GitHub Actions CI, Sentry monitoring, and structured logs to improve reliability and maintainability.}
+  \resumeItemListEnd
+
+  \resumeProjectHeading
+    {\textbf{\href{https://intel-craft.vercel.app/}{IntelCraft}} $|$ \footnotesize\emph{Python, FastAPI, PostgreSQL, WebSockets, LangGraph, Docker}}{}
+  \resumeItemListStart
+    \resumeItem{Developed a Python and FastAPI service that coordinates OpenAI, Gemini, and Tavily through LangGraph to research companies and generate personalized outreach.}
+    \resumeItem{Streamed job progress through WebSockets, stored application data in PostgreSQL, and packaged the backend in Docker with a health check for deployment.}
+  \resumeItemListEnd
+
+  \resumeProjectHeading
+    {\textbf{\href{https://github.com/Akash8585/Ramso}{Ramso}} $|$ \footnotesize\emph{Python, OpenAI, TTS, Manim, FFmpeg}}{}
+  \resumeItemListStart
+    \resumeItem{Created a Python pipeline that uses OpenAI models to generate scripts and animation code, Google TTS for voice output, Manim for rendering, and FFmpeg for final assembly.}
+    \resumeItem{Orchestrated the full workflow from a user prompt to a downloadable two minute educational video without manual processing.}
+  \resumeItemListEnd
+
+  \resumeProjectHeading
+    {\textbf{\href{https://github.com/Akash8585/SynergySphere}{SynergySphere}} $|$ \footnotesize\emph{Next.js, PostgreSQL, Docker, Drizzle ORM}}{}
+  \resumeItemListStart
+    \resumeItem{Built a team collaboration application with authentication, project and task management, threaded discussions, mentions, notifications, and persistent chat history.}
+    \resumeItem{Used Docker Compose for the PostgreSQL development environment and Drizzle ORM for the application data model.}
+  \resumeItemListEnd
+\resumeSubHeadingListEnd
+
+\end{document}
