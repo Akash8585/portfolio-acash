@@ -1,5 +1,12 @@
 import { Icons } from "@/components/icons";
-import { FileDownIcon, HomeIcon, NotebookIcon } from "lucide-react";
+import { FileDownIcon, HomeIcon, NotebookIcon, type LucideIcon } from "lucide-react";
+
+type NavbarItem = {
+  href: string;
+  icon: LucideIcon;
+  label: string;
+  download?: boolean;
+};
 
 export const DATA = {
   name: "Akash Kumar Prasad",
@@ -56,7 +63,7 @@ export const DATA = {
       label: "Download Resume",
       download: true,
     },
-  ],
+  ] satisfies NavbarItem[],
   contact: {
     email: "akashkuamrprasad984@gmail.com",
     tel: "8585897351",
