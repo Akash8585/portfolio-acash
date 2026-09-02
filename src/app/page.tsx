@@ -1,5 +1,5 @@
 import { HackathonCard } from "@/components/hackathon-card";
-// import { GitHubStats } from "@/components/github-stats";
+import { GitHubStats } from "@/components/github-stats";
 import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
 import { ProjectCard } from "@/components/project-card";
@@ -70,7 +70,7 @@ export default function Page() {
           </BlurFade>
         </div>
       </section>
-      {/* <section id="github-stats">
+      <section id="github-stats">
         <div className="flex min-h-0 flex-col gap-y-3">
           <BlurFade delay={BLUR_FADE_DELAY * 5}>
             <h2 className="text-xl font-bold">GitHub Stats</h2>
@@ -79,7 +79,7 @@ export default function Page() {
             <GitHubStats />
           </BlurFade>
         </div>
-      </section> */}
+      </section>
       {/* <section id="work">
         <div className="flex min-h-0 flex-col gap-y-3">
           <BlurFade delay={BLUR_FADE_DELAY * 5}>
