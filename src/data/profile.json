@@ -1,0 +1,122 @@
+{
+  "name": "Akash Kumar Prasad",
+  "shortName": "Akash",
+  "headline": "Full-stack developer building AI-powered web apps and the backends behind them.",
+  "location": "India",
+  "email": "akash.iit.work@gmail.com",
+  "site": "https://akashkumarprasad.com",
+  "resume": "/Akash_resume.pdf",
+  "greeting": "hi, akash here",
+  "tagline": "B.S. in Data Science and Applications at IIT Madras.",
+  "lede": "Full-stack developer. I like building AI-powered products, the backends behind them, and interfaces that stay out of the way.",
+  "assistantName": "Ask Akash",
+  "assistantGreeting": "Hi. I answer questions about Akash from the notes on this site: his projects, his studies at IIT Madras, and how to reach him. If it is not written down here, I will say so.",
+  "chatSuggestions": [
+    "What is BuilderBridge?",
+    "Which projects use Python?",
+    "What did he build at the Odoo hackathon?",
+    "How can I contact him?"
+  ],
+  "summary": [
+    "Akash is pursuing a B.S. in Data Science and Applications at the Indian Institute of Technology Madras.",
+    "He builds full-stack products with Next.js, TypeScript, Python, and PostgreSQL, including AI features that stay tied to real project data.",
+    "The projects on this site are public on GitHub, including BuilderBridge, SynergySphere, Claso, Ramso, IntelCraft, a Telegram reminder bot, and YT-Slice.",
+    "At the Odoo x Paradox hackathon at IIT Madras he built SynergySphere, a team workspace with tasks, chat, mentions, and dashboards."
+  ],
+  "focus": [
+    "AI-assisted web products with Next.js, the Vercel AI SDK, and human approval before writes",
+    "Python services for video generation, code comments, and Telegram agents",
+    "PostgreSQL, Prisma, Drizzle, and auth with Better Auth",
+    "Interfaces in React, TypeScript, and Tailwind CSS"
+  ],
+  "skills": [
+    {
+      "group": "Languages",
+      "items": ["TypeScript", "JavaScript", "Python", "SQL"]
+    },
+    {
+      "group": "Frontend",
+      "items": [
+        "React",
+        "Next.js",
+        "Tailwind CSS",
+        "shadcn/ui",
+        "HTML",
+        "CSS"
+      ]
+    },
+    {
+      "group": "Backend and APIs",
+      "items": ["Node.js", "FastAPI", "WebSockets", "REST"]
+    },
+    {
+      "group": "Databases and storage",
+      "items": [
+        "PostgreSQL",
+        "MongoDB",
+        "SQLite",
+        "Supabase",
+        "Firebase",
+        "Prisma",
+        "Drizzle"
+      ]
+    },
+    {
+      "group": "AI and ML",
+      "items": [
+        "Vercel AI SDK",
+        "OpenAI",
+        "Groq",
+        "Gemini",
+        "LangGraph",
+        "PyTorch",
+        "Transformers"
+      ]
+    },
+    {
+      "group": "DevOps and cloud",
+      "items": ["Docker", "Git", "GitHub", "Vercel", "Render", "Railway"]
+    },
+    {
+      "group": "Tools and practices",
+      "items": ["DBMS", "Data Science", "Postman", "REST APIs"]
+    }
+  ],
+  "openSource": {
+    "name": "GitHub",
+    "role": "Public projects",
+    "href": "https://github.com/Akash8585",
+    "start": "Ongoing",
+    "end": null,
+    "description": [
+      "Full-stack products, a hackathon workspace, and smaller tools, with source linked from the projects page.",
+      "The contribution graph on the home page is counted live."
+    ]
+  },
+  "achievements": [
+    {
+      "title": "Odoo x Paradox Hackathon, IIT Madras",
+      "detail": "Built SynergySphere, a team workspace with tasks, threaded chat, mentions, notifications, and project dashboards.",
+      "mark": "2025"
+    }
+  ],
+  "roles": [],
+  "faq": [
+    {
+      "q": "Where is Akash studying?",
+      "a": "Akash is pursuing a B.S. in Data Science and Applications at the Indian Institute of Technology Madras."
+    },
+    {
+      "q": "What kind of work does Akash enjoy most?",
+      "a": "He builds full-stack products where an interface and a backend have to agree: AI features that cite live data, Python tools for video and code, and small agents that turn a message into a scheduled task."
+    },
+    {
+      "q": "How can I contact Akash?",
+      "a": "Use the contact form, email akash.iit.work@gmail.com, or connect on LinkedIn (linkedin.com/in/akash-kumar-prasad-82b1a1285) and GitHub (github.com/Akash8585). His resume is at /Akash_resume.pdf."
+    },
+    {
+      "q": "What is Ask Akash?",
+      "a": "Ask Akash is the assistant on this site. It answers questions about Akash using the portfolio content, and can run on Groq, Gemini, or ChatGPT when a provider key is configured."
+    }
+  ]
+}

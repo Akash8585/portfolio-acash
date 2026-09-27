@@ -1,0 +1,26 @@
+{
+  "career": [
+    {
+      "name": "Odoo x Paradox Hackathon",
+      "href": "https://github.com/Akash8585/SynergySphere",
+      "title": "Built SynergySphere",
+      "logo": "/hack.svg",
+      "start": "June 2025",
+      "end": "June 2025",
+      "description": [
+        "Shipped a team workspace at IIT Madras: task management, threaded chat, mentions, notifications, and project dashboards.",
+        "The build is on GitHub, with a walkthrough of the prototype."
+      ],
+      "tech": [
+        "Next.js 15",
+        "TypeScript",
+        "Tailwind CSS",
+        "shadcn/ui",
+        "better-auth",
+        "PostgreSQL",
+        "Drizzle"
+      ],
+      "location": "IIT Madras"
+    }
+  ]
+}

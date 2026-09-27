@@ -1,0 +1,15 @@
+{
+  "education": [
+    {
+      "name": "Indian Institute of Technology Madras",
+      "href": "https://www.iitm.ac.in/",
+      "title": "B.S. in Data Science and Applications",
+      "logo": "/iitm.svg",
+      "start": "In progress",
+      "description": [
+        "Studying data science while building full-stack products with Next.js, TypeScript, and Python.",
+        "Built SynergySphere at the Odoo x Paradox hackathon."
+      ]
+    }
+  ]
+}

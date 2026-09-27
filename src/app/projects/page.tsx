@@ -1,58 +1,31 @@
-import BlurFade from "@/components/magicui/blur-fade";
-import { ProjectCard } from "@/components/project-card";
-import { DATA } from "@/data/resume";
+import PageTitle from "@/components/motion/PageTitle";
+import ProjectsBrowser from "@/components/projects/ProjectsBrowser";
+import data from "@/data/projects.json";
+import { projectSchema } from "@/lib/schemas";
+import { markForProject } from "@/lib/techIcons";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Projects",
-  description: "My projects and work.",
+  description: "Projects Akash has shipped, from AI products to small tools.",
 };
 
-const BLUR_FADE_DELAY = 0.04;
+export default function ProjectPage() {
+  const projects = projectSchema.parse(data).projects.map((p) => ({
+    ...p,
+    mark: markForProject(p.language, p.tags),
+  }));
 
-export default function ProjectsPage() {
   return (
-    <main className="flex flex-col min-h-[100dvh] space-y-10">
-      <section id="projects">
-        <div className="space-y-12 w-full py-12">
-          <BlurFade delay={BLUR_FADE_DELAY}>
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2">
-                <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
-                  All Projects
-                </div>
-                <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                  My Complete Portfolio
-                </h1>
-                <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Here&apos;s a comprehensive look at all the projects I&apos;ve worked on,
-                  from simple websites to complex web applications.
-                </p>
-              </div>
-            </div>
-          </BlurFade>
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 max-w-[800px] mx-auto">
-            {DATA.projects.map((project, id) => (
-              <BlurFade
-                key={project.title}
-                delay={BLUR_FADE_DELAY * 2 + id * 0.05}
-              >
-                <ProjectCard
-                  href={project.href}
-                  key={project.title}
-                  title={project.title}
-                  description={project.description}
-                  dates={project.dates}
-                  tags={project.technologies}
-                  image={project.image}
-                  video={project.video}
-                  links={project.links}
-                />
-              </BlurFade>
-            ))}
-          </div>
-        </div>
-      </section>
-    </main>
+    <div className="flex flex-col gap-10 pb-8 pt-10 sm:pt-16">
+      <header>
+        <PageTitle label="PROJECTS" title="Projects" />
+        <p className="measure mt-4 text-muted-foreground sm:text-lg">
+          {projects.length} things built for a hackathon, coursework, and the
+          products he wanted to exist. Most link to source.
+        </p>
+      </header>
+      <ProjectsBrowser projects={projects} />
+    </div>
   );
-} 
+}

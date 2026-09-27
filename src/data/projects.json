@@ -1,0 +1,195 @@
+{
+  "projects": [
+    {
+      "name": "BuilderBridge",
+      "description": "AI-assisted construction control room that connects schedules, critical-path planning, weekly commitments, field progress, RFIs, and project documents. Its project-aware agent cites live data, prepares reviewable changes, and applies them only after permission checks and human approval.",
+      "href": "https://builderbridge.vercel.app/",
+      "image": "/builderbridge.png",
+      "language": "TypeScript",
+      "tags": [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Vercel AI SDK",
+        "Prisma",
+        "PostgreSQL",
+        "Better Auth",
+        "Supabase"
+      ],
+      "links": [
+        {
+          "name": "Website",
+          "href": "https://builderbridge.vercel.app/",
+          "icon": "globe"
+        },
+        {
+          "name": "Source",
+          "href": "https://github.com/Akash8585/builderbridge",
+          "icon": "github"
+        },
+        {
+          "name": "Demo",
+          "href": "https://www.youtube.com/watch?v=MyIDR62UqKg",
+          "icon": "youtube"
+        }
+      ]
+    },
+    {
+      "name": "SynergySphere",
+      "description": "Team workspace built at the Odoo x Paradox hackathon at IIT Madras: task management, threaded chat, mentions, notifications, and project dashboards.",
+      "href": "https://github.com/Akash8585/SynergySphere",
+      "image": "/synergysphere.png",
+      "language": "TypeScript",
+      "tags": [
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "shadcn/ui",
+        "better-auth",
+        "PostgreSQL",
+        "Drizzle"
+      ],
+      "links": [
+        {
+          "name": "Source",
+          "href": "https://github.com/Akash8585/SynergySphere",
+          "icon": "github"
+        },
+        {
+          "name": "Demo",
+          "href": "https://youtu.be/baCzpVf0wYM",
+          "icon": "youtube"
+        }
+      ]
+    },
+    {
+      "name": "Claso",
+      "description": "Full-stack code assistant that uses custom-trained transformer models to write code comments and context-aware commit messages for Python and JavaScript, without calling an external model API.",
+      "href": "https://github.com/Akash8585/claso",
+      "image": "/claso.png",
+      "language": "Python",
+      "tags": [
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Monaco Editor",
+        "Python",
+        "FastAPI",
+        "PyTorch",
+        "Transformers"
+      ],
+      "links": [
+        {
+          "name": "Source",
+          "href": "https://github.com/Akash8585/claso",
+          "icon": "github"
+        },
+        {
+          "name": "Demo",
+          "href": "https://youtu.be/h9gdoTIhw48",
+          "icon": "youtube"
+        }
+      ]
+    },
+    {
+      "name": "Ramso",
+      "description": "One-click AI video generator that turns a concept into an educational explainer: a script, Manim animation, a voiceover, and a downloadable MP4.",
+      "href": "https://github.com/Akash8585/Ramso",
+      "image": "/ramso.png",
+      "language": "Python",
+      "tags": [
+        "Python",
+        "Streamlit",
+        "Agno",
+        "OpenAI",
+        "Manim",
+        "Neets AI",
+        "FFmpeg"
+      ],
+      "links": [
+        {
+          "name": "Source",
+          "href": "https://github.com/Akash8585/Ramso",
+          "icon": "github"
+        }
+      ]
+    },
+    {
+      "name": "IntelCraft",
+      "description": "Outreach assistant for students and freshers. It looks up a company, drafts a personalized email or cover letter, and streams progress over WebSockets.",
+      "href": "https://intel-craft.vercel.app/",
+      "language": "TypeScript",
+      "tags": [
+        "React",
+        "TypeScript",
+        "FastAPI",
+        "PostgreSQL",
+        "WebSockets",
+        "LangGraph",
+        "Vercel",
+        "Railway"
+      ],
+      "links": [
+        {
+          "name": "Website",
+          "href": "https://intel-craft.vercel.app/",
+          "icon": "globe"
+        },
+        {
+          "name": "Source",
+          "href": "https://github.com/Akash8585/IntelCraft",
+          "icon": "github"
+        }
+      ]
+    },
+    {
+      "name": "Todo Telegram Agent",
+      "description": "Telegram reminder bot that turns a sentence into a scheduled task. Groq parses the intent and time, SQLite stores the task, and a scheduler sends the reminder with Done and Snooze actions.",
+      "href": "https://github.com/Akash8585/todo_telegram_agent",
+      "language": "Python",
+      "tags": [
+        "Python",
+        "FastAPI",
+        "SQLModel",
+        "SQLite",
+        "python-telegram-bot",
+        "APScheduler",
+        "Groq"
+      ],
+      "links": [
+        {
+          "name": "Source",
+          "href": "https://github.com/Akash8585/todo_telegram_agent",
+          "icon": "github"
+        }
+      ]
+    },
+    {
+      "name": "YT-Slice",
+      "description": "Calculates the total and average length of a YouTube playlist range, and how long that range takes at different playback speeds.",
+      "href": "https://yt-slice.vercel.app/",
+      "language": "TypeScript",
+      "tags": [
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "shadcn/ui",
+        "React Hook Form",
+        "YouTube Data API"
+      ],
+      "links": [
+        {
+          "name": "Website",
+          "href": "https://yt-slice.vercel.app/",
+          "icon": "globe"
+        },
+        {
+          "name": "Source",
+          "href": "https://github.com/Akash8585/YT-slice",
+          "icon": "github"
+        }
+      ]
+    }
+  ]
+}

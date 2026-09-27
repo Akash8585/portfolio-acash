@@ -1,54 +1,56 @@
-import Navbar from "@/components/navbar";
-import { ThemeProvider } from "@/components/theme-provider";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { DATA } from "@/data/resume";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
+import Quote from "@/components/layout/Quote";
+import Rule from "@/components/layout/Rule";
+import WorkbenchGrid from "@/components/layout/WorkbenchGrid";
+import { MOTION_BOOT } from "@/components/motion/runtime";
+import Providers from "@/components/Providers";
+import profile from "@/data/profile.json";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
-import { Inter as FontSans } from "next/font/google";
+import { Instrument_Sans, JetBrains_Mono, Silkscreen, Young_Serif } from "next/font/google";
 import "./globals.css";
 
-const fontSans = FontSans({
+const instrument = Instrument_Sans({
   subsets: ["latin"],
   variable: "--font-sans",
+  display: "swap",
+});
+
+const youngSerif = Young_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-display",
+  display: "swap",
+});
+
+const jetbrains = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  display: "swap",
+});
+
+/* Pixel face, used only by the clock on the banner. */
+const silkscreen = Silkscreen({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-pixel",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(DATA.url),
+  metadataBase: new URL(profile.site),
   title: {
-    default: DATA.name,
-    template: `%s | ${DATA.name}`,
+    default: profile.name,
+    template: `%s | ${profile.name}`,
   },
-  description: DATA.description,
+  description: profile.headline,
   openGraph: {
-    title: `${DATA.name}`,
-    description: DATA.description,
-    url: DATA.url,
-    siteName: `${DATA.name}`,
-    locale: "en_US",
+    title: profile.name,
+    description: profile.headline,
+    url: profile.site,
+    siteName: profile.name,
     type: "website",
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-  twitter: {
-    title: `${DATA.name}`,
-    card: "summary_large_image",
-  },
-  icons: {
-    icon: DATA.avatarUrl,
-    apple: DATA.avatarUrl,
-  },
-  verification: {
-    google: "",
-    yandex: "",
   },
 };
 
@@ -61,16 +63,27 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased max-w-2xl mx-auto py-12 sm:py-24 px-6",
-          fontSans.variable
+          "flex min-h-screen flex-col font-sans antialiased",
+          instrument.variable,
+          youngSerif.variable,
+          jetbrains.variable,
+          silkscreen.variable,
         )}
       >
-        <ThemeProvider attribute="class" defaultTheme="light">
-          <TooltipProvider delayDuration={0}>
-            {children}
-            <Navbar />
-          </TooltipProvider>
-        </ThemeProvider>
+        {/* Marks <html data-motion> before the first paint; see runtime.ts. */}
+        <script dangerouslySetInnerHTML={{ __html: MOTION_BOOT }} />
+        <Providers>
+          <WorkbenchGrid />
+          <div className="column relative z-10 mx-auto flex w-full max-w-site grow flex-col">
+            <Header />
+            <main className="relative grow px-[var(--gutter)]">{children}</main>
+            <div className="px-[var(--gutter)]">
+              <Rule />
+              <Quote />
+            </div>
+            <Footer />
+          </div>
+        </Providers>
       </body>
     </html>
   );

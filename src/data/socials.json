@@ -1,0 +1,24 @@
+{
+  "socials": [
+    {
+      "name": "LinkedIn",
+      "href": "https://www.linkedin.com/in/akash-kumar-prasad-82b1a1285/",
+      "icon": "linkedin"
+    },
+    {
+      "name": "GitHub",
+      "href": "https://github.com/Akash8585",
+      "icon": "github"
+    },
+    {
+      "name": "X",
+      "href": "https://x.com/akash87478",
+      "icon": "x"
+    },
+    {
+      "name": "Email",
+      "href": "mailto:akash.iit.work@gmail.com",
+      "icon": "mail"
+    }
+  ]
+}
