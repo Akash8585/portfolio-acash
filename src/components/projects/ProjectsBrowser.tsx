@@ -42,6 +42,9 @@ export default function ProjectsBrowser({ projects }: { projects: ProjectWithMar
   );
   const visible = useMemo(() => projects.filter(filter.match), [filter, projects]);
 
+  const languages = LANGUAGE_FILTERS.filter((f) => projects.some(f.match));
+  const areas = AREA_FILTERS.filter((f) => projects.some(f.match));
+
   const chip = (f: Filter) => {
     const count = projects.filter(f.match).length;
     const on = active === f.id;
@@ -68,10 +71,14 @@ export default function ProjectsBrowser({ projects }: { projects: ProjectWithMar
     <div className="flex flex-col gap-8">
       <div role="tablist" aria-label="Filter projects" className="flex flex-wrap items-center gap-2">
         {chip(ALL)}
-        <span aria-hidden className="mx-1 hidden h-5 w-px bg-border sm:block" />
-        {LANGUAGE_FILTERS.map(chip)}
-        <span aria-hidden className="mx-1 hidden h-5 w-px bg-border sm:block" />
-        {AREA_FILTERS.map(chip)}
+        {languages.length > 0 && (
+          <span aria-hidden className="mx-1 hidden h-5 w-px bg-border sm:block" />
+        )}
+        {languages.map(chip)}
+        {areas.length > 0 && (
+          <span aria-hidden className="mx-1 hidden h-5 w-px bg-border sm:block" />
+        )}
+        {areas.map(chip)}
       </div>
 
       {visible.length === 0 ? (
