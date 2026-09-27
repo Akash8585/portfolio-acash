@@ -11,9 +11,9 @@ import { Budget } from "./ratelimit";
  * next provider in the chain instead of surfacing a 429 to the visitor.
  */
 
-export type ProviderId = "groq" | "gemini" | "openai";
+export type ProviderId = "openrouter" | "groq" | "gemini" | "openai";
 
-export const PROVIDER_IDS: ProviderId[] = ["groq", "gemini", "openai"];
+export const PROVIDER_IDS: ProviderId[] = ["openrouter", "groq", "gemini", "openai"];
 
 export interface ProviderInfo {
   id: ProviderId;
@@ -38,6 +38,18 @@ interface ProviderConfig {
 }
 
 const CONFIGS: Record<ProviderId, ProviderConfig> = {
+  openrouter: {
+    id: "openrouter",
+    label: "OpenRouter",
+    baseURL: "https://openrouter.ai/api/v1",
+    apiKeyEnv: "OPENROUTER_API_KEY",
+    modelEnv: "OPENROUTER_MODEL",
+    defaultModel: "poolside/laguna-s-2.1:free",
+    rpmEnv: "OPENROUTER_RPM",
+    rpdEnv: "OPENROUTER_RPD",
+    defaultRpm: 16,
+    defaultRpd: 200,
+  },
   groq: {
     id: "groq",
     label: "Groq",
@@ -102,6 +114,30 @@ export function modelFor(id: ProviderId): string {
   return process.env[CONFIGS[id].modelEnv] || CONFIGS[id].defaultModel;
 }
 
+/** Free models tried, in order, when OpenRouter's first choice fails or rambles. */
+const OPENROUTER_FREE_MODELS = [
+  "poolside/laguna-s-2.1:free",
+  "google/gemma-4-31b-it:free",
+  "qwen/qwen3.8-27b:free",
+  "openrouter/free",
+];
+
+function modelsToTry(id: ProviderId): string[] {
+  const chosen = modelFor(id);
+  if (id !== "openrouter") return [chosen];
+  return [chosen, ...OPENROUTER_FREE_MODELS.filter((model) => model !== chosen)];
+}
+
+function answerLooksUnusable(text: string): boolean {
+  const trimmed = text.trim();
+  if (trimmed.length < 24) return true;
+  if (/thinking process|analyze user input|check rules|formulate response|\bdraft:/i.test(trimmed)) {
+    return true;
+  }
+  const closed = /[.!?)"'\]]$/.test(trimmed);
+  return !closed && trimmed.length > 180;
+}
+
 export function providerInfo(): ProviderInfo[] {
   return PROVIDER_IDS.map((id) => ({
     id,
@@ -146,6 +182,12 @@ async function clientFor(id: ProviderId): Promise<OpenAI> {
     maxRetries: 1,
     timeout: 45_000,
   };
+  if (id === "openrouter") {
+    options.defaultHeaders = {
+      "HTTP-Referer": process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
+      "X-Title": "Akash Kumar Prasad",
+    };
+  }
   // Honour a corporate proxy when one is configured; no-op elsewhere.
   const proxyUrl = process.env.HTTPS_PROXY || process.env.https_proxy;
   if (proxyUrl) {
@@ -182,7 +224,7 @@ export interface StreamRequest {
 export async function streamCompletion(
   id: ProviderId,
   req: StreamRequest,
-): Promise<AsyncIterable<string>> {
+): Promise<{ model: string; stream: AsyncIterable<string> }> {
   const budget = budgetFor(id);
   if (!budget.tryConsume()) {
     const snap = budget.snapshot();
@@ -194,39 +236,72 @@ export async function streamCompletion(
   }
 
   const client = await clientFor(id);
-  try {
-    const model = modelFor(id);
-    const stream = await client.chat.completions.create(
-      {
-        model,
-        messages: req.messages,
-        temperature: req.temperature,
-        max_tokens: req.maxTokens,
-        stream: true,
-        // Reasoning models spend tokens thinking before they answer. A short
-        // grounded answer does not need that, so keep the effort low.
-        ...(isReasoningModel(model) ? { reasoning_effort: "low" as const } : {}),
-      },
-      { signal: req.signal },
-    );
+  const failures: string[] = [];
+  let lastText = "";
 
-    return (async function* () {
+  for (const model of modelsToTry(id)) {
+    try {
+      const stream = await client.chat.completions.create(
+        {
+          model,
+          messages: req.messages,
+          temperature: req.temperature,
+          max_tokens: req.maxTokens,
+          stream: true,
+          // Reasoning models spend tokens thinking before they answer. A short
+          // grounded answer does not need that, so keep the effort low.
+          ...(isReasoningModel(model) ? { reasoning_effort: "low" as const } : {}),
+        },
+        { signal: req.signal },
+      );
+
+      let text = "";
       for await (const chunk of stream) {
-        const text = chunk.choices?.[0]?.delta?.content;
-        if (text) yield text;
+        const piece = chunk.choices?.[0]?.delta?.content;
+        if (piece) text += piece;
       }
-    })();
-  } catch (err) {
-    budget.refund();
-    const status = (err as { status?: number })?.status;
-    const message = err instanceof Error ? err.message : String(err);
-    if (status === 429 || /quota|rate.?limit|resource.?exhausted/i.test(message)) {
-      const retryAfter = parseRetryAfter(err);
-      budget.cooldown(retryAfter);
-      throw new ProviderUnavailable(id, "rate_limited", `${id} rate limited: ${message}`);
+      lastText = text;
+      if (id === "openrouter" && answerLooksUnusable(text)) {
+        failures.push(`${model}: unusable answer`);
+        continue;
+      }
+      return {
+        model,
+        stream: (async function* () {
+          if (text) yield text;
+        })(),
+      };
+    } catch (err) {
+      const status = (err as { status?: number })?.status;
+      const message = err instanceof Error ? err.message : String(err);
+      failures.push(`${model}: ${status ?? "error"}`);
+      if (id !== "openrouter") {
+        budget.refund();
+        if (status === 429 || /quota|rate.?limit|resource.?exhausted/i.test(message)) {
+          const retryAfter = parseRetryAfter(err);
+          budget.cooldown(retryAfter);
+          throw new ProviderUnavailable(id, "rate_limited", `${id} rate limited: ${message}`);
+        }
+        throw new ProviderUnavailable(id, "error", `${id} failed: ${message}`);
+      }
     }
-    throw new ProviderUnavailable(id, "error", `${id} failed: ${message}`);
   }
+
+  if (lastText.trim()) {
+    return {
+      model: modelFor(id),
+      stream: (async function* () {
+        yield lastText;
+      })(),
+    };
+  }
+
+  budget.refund();
+  throw new ProviderUnavailable(
+    id,
+    "error",
+    `${id} failed: ${failures.join("; ") || "no answer"}`,
+  );
 }
 
 function isReasoningModel(model: string): boolean {

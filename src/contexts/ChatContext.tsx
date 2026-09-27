@@ -12,10 +12,10 @@ import {
   type ReactNode,
 } from "react";
 
-export type ProviderChoice = "auto" | "groq" | "gemini" | "openai";
+export type ProviderChoice = "auto" | "openrouter" | "groq" | "gemini" | "openai";
 
 export interface ProviderOption {
-  id: "groq" | "gemini" | "openai";
+  id: "openrouter" | "groq" | "gemini" | "openai";
   label: string;
   model: string;
   configured: boolean;
@@ -69,7 +69,13 @@ export function ChatProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     try {
       const saved = localStorage.getItem(PROVIDER_KEY);
-      if (saved === "groq" || saved === "gemini" || saved === "openai" || saved === "auto") {
+      if (
+        saved === "openrouter" ||
+        saved === "groq" ||
+        saved === "gemini" ||
+        saved === "openai" ||
+        saved === "auto"
+      ) {
         setProviderState(saved);
       }
     } catch {
